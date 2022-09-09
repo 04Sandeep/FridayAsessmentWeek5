@@ -1,7 +1,6 @@
 package Test;
 
 import org.testng.annotations.Test;
-
 public class LoginTesting extends BaseClass
 {
     @Test
