@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Cases" verbose="1" >
+    <test name="Testing the report searching">
+        <parameter name="browserName" value="firefox"/>
+        <classes>
+            <class name="TestReport.ReportSearchingTesting"/>
+        </classes>
+    </test>
+
+    <test name="Testing the low stock">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="TestReport.LowStockTesting"/>
+        </classes>
+    </test>
+
+</suite>
