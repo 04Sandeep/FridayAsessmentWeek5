@@ -14,12 +14,13 @@ public class Search {
     public Search(WebDriver driver)
     {
         this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
     public void searchInfo()
     {
+        driver.findElement(search);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(search));
+        driver.findElement(search).sendKeys("GIFT CARDS");
         driver.findElement(search).click();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-        wait.until(ExpectedConditions.elementToBeClickable(search));
-        driver.findElement(search).sendKeys("Dashboard");
     }
 }

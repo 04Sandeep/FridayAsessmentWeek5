@@ -2,10 +2,15 @@ package NopCommerce;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 public class LoginPage {
     WebDriver driver;
+    WebDriverWait wait;
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -18,9 +23,10 @@ public class LoginPage {
         driver.findElement(By.xpath("//div[@class='buttons']/button")).click();
         Assert.assertEquals(driver.findElement(By.xpath("//div[@class='content-header']/h1")).getText(), "Dashboard");
     }
-
     public void logout() {
-        driver.findElement(By.xpath("//*[contains(text(), 'Logout')]"));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[contains(text(), 'Logout')]")));
+        driver.findElement(By.xpath("//*[contains(text(), 'Logout')]")).click();
     }
 }
 
